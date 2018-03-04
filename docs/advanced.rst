@@ -115,7 +115,7 @@ rendering
   Creating a new PDF from other data (such as an existing PDF).
 
 
-OCRmyPDF has three PDF renderers: ``sandwich``, ``hocr``, ``tesseract``. The renderer may be selected using ``--pdf-renderer``. The default is ``auto`` which lets OCRmyPDF select the renderer to use. Currently, ``auto`` selects ``sandwich`` for Tesseract 3.05.01, and newer, ``hocr`` for older versions of Tesseract.
+OCRmyPDF has three PDF renderers: ``sandwich``, ``hocr``, ``tesseract``. The renderer may be selected using ``--pdf-renderer``. The default is ``auto`` which lets OCRmyPDF select the renderer to use. Currently, ``auto`` selects ``sandwich`` for Tesseract 3.05.01 or newer, or ``hocr`` for older versions of Tesseract.
 
 The ``sandwich`` renderer
 """""""""""""""""""""""""
@@ -136,7 +136,7 @@ This works in all versions of Tesseract.
 The ``tesseract`` renderer
 """"""""""""""""""""""""""
 
-The ``tesseract`` renderer creates a PDF with the image and text layers precomposed, meaning that it always transcodes, loses image quality and rasterizes and vector objects. It does a better job on non-Latin text and document structure than ``hocr``.
+The ``tesseract`` renderer creates a PDF with the image and text layers precomposed, meaning that it always transcodes, loses image quality and rasterizes any vector objects. It does a better job on non-Latin text and document structure than ``hocr``.
 
 If a PDF created with this renderer using Tesseract versions older than 3.05.00 is then passed through Ghostscript's pdfwrite feature, the OCR text *may* be corrupted. The ``--output-type=pdfa`` argument will produce a warning in this situation.
 
